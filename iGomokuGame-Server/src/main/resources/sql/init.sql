@@ -1,6 +1,6 @@
-create database gomoku_online
+create database gomoku_online;
 
-use gomoku_online
+use gomoku_online;
 
 # type字段是为了后续扩展，实际是我当时设计的时候有问题~~~
 # admin表
@@ -137,4 +137,4 @@ create table website_visitor_details_info
 
 
 # 给管理员插入一条初始化数据，其他尽量不要乱插。业务逻辑有时候会出问题，数据库层面没有约束
-insert into admin(username,password) values("admin","admin")   
+insert into admin(username,password) values("admin","admin");   

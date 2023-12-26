@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gobanggame.mapper.WebsiteDayInfoMapper">
+
+    <!--条件插入-->
+    <insert id="insert">
+        INSERT INTO website_day_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="newUserCount != null">new_user_count,</if>
+            <if test="visitorCount != null">visitor_count,</if>
+            <if test="websiteClicks != null">website_clicks,</if>
+            <if test="aiGameCounts != null">ai_game_counts,</if>
+            <if test="humanGameCount != null">human_game_count,</if>
+            <if test="recordDate != null">record_date,</if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="newUserCount != null">#{newUserCount},</if>
+            <if test="visitorCount != null">#{visitorCount},</if>
+            <if test="websiteClicks != null">#{websiteClicks},</if>
+            <if test="aiGameCounts != null">#{aiGameCounts},</if>
+            <if test="humanGameCount != null">#{humanGameCount},</if>
+            <if test="recordDate != null">#{recordDate},</if>
+        </trim>
+    </insert>
+    <!--    条件更新-->
+    <update id="update">
+        UPDATE website_day_info
+        <set>
+            <if test="newUserCount != null">new_user_count = #{newUserCount},</if>
+            <if test="visitorCount != null">visitor_count = #{visitorCount},</if>
+            <if test="websiteClicks != null">website_clicks = #{websiteClicks},</if>
+            <if test="aiGameCounts != null">ai_game_counts = #{aiGameCounts},</if>
+            <if test="humanGameCount != null">human_game_count = #{humanGameCount},</if>
+        </set>
+        WHERE record_date = #{recordDate}
+    </update>
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gobanggame.mapper.UserMapper">
+    <insert id="register" useGeneratedKeys="true" keyProperty="id">
+        insert into user(username, password, create_time, update_time)
+        values (#{username}, #{password}, #{createTime}, #{updateTime})
+    </insert>
+
+
+    <!--    条件更新-->
+    <update id="update">
+        UPDATE user
+        <set>
+            <if test="username != null">username = #{username},</if>
+            <if test="password != null">password = #{password},</if>
+            <if test="nickname != null">nickname = #{nickname},</if>
+            <if test="gender != null">gender = #{gender},</if>
+            <if test="age != null">age = #{age},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="socialAccount != null">social_account = #{socialAccount},</if>
+            <if test="imageUrl != null">image_url = #{imageUrl},</if>
+            <if test="userLevel != null">user_level = #{userLevel},</if>
+            <if test="userScore != null">user_score = #{userScore},</if>
+            <if test="gameTotalCounts != null">game_total_counts = #{gameTotalCounts},</if>
+            <if test="gamePersonCounts != null">game_person_counts = #{gamePersonCounts},</if>
+            <if test="gameAiCounts != null">game_ai_counts = #{gameAiCounts},</if>
+            <if test="gameSuccessCounts != null">game_success_counts = #{gameSuccessCounts},</if>
+            <if test="gameFailCounts != null">game_fail_counts = #{gameFailCounts},</if>
+            <if test="gameDeadHeatCounts != null">game_dead_heat_counts = #{gameDeadHeatCounts},</if>
+            <if test="online != null">online = #{online},</if>
+            <if test="lastOnlineTime != null">last_online_time = #{lastOnlineTime},</if>
+            <if test="deleted != null">deleted = #{deleted},</if>
+            <if test="updateTime != null">update_time = #{updateTime}</if>
+        </set>
+        WHERE id = #{id}
+        and deleted=0
+    </update>
+<!--    模糊查询-->
+    <select id="list" resultType="com.gobanggame.pojo.entity.User">
+        select * from user
+        <where>
+            <if test="username!=null and username!=''">
+                username LIKE CONCAT('%', #{username}, '%')
+            </if>
+            <if test="nickname!=null and nickname!=''">
+                AND nickname LIKE CONCAT('%', #{nickname}, '%')
+            </if>
+            <if test="deleted!=null">
+                AND deleted=#{deleted}
+            </if>
+        </where>
+    </select>
+</mapper>

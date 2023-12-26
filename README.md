@@ -6,7 +6,7 @@
 
 ​		iGomokuGame是一个基于Vue3、SpringBoot3，Element-Plus、WebSocket、SpringTask、DataV、五子棋AI算法等实现的一款在线五子棋游戏。支持**排行榜功能**、**好友功能**、**人机对战**、**人机互动**、**联机对战**、**数据可视化分析**等功能。项目使用最新技术开发，开发过程规范，逻辑严谨。
 
-B站项目介绍地址：
+B站项目介绍地址： https://b23.tv/ph4Oz5l
 
 ## 在线预览👀
 

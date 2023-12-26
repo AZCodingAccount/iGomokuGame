@@ -117,8 +117,6 @@ pnpm dev   # 运行程序
 
 ![image-20231226160435752](https://my-picture-bed1-1321100201.cos.ap-beijing.myqcloud.com/mypictures/image-20231226160435752.png)
 
-
-
 - 流量分析页
 
 ![image-20231226160507134](https://my-picture-bed1-1321100201.cos.ap-beijing.myqcloud.com/mypictures/image-20231226160507134.png)
@@ -159,5 +157,4 @@ pnpm dev   # 运行程序
 |                             微信                             |                            支付宝                            |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | <img src="https://my-picture-bed1-1321100201.cos.ap-beijing.myqcloud.com/mypictures/wechat.jpg" alt="wechat" style="zoom: 25%;margin:0 auto" /> | <img src="https://my-picture-bed1-1321100201.cos.ap-beijing.myqcloud.com/mypictures/alipay.jpg" alt="alipay" style="zoom:25%;margin:0 auto" /> |
-
 

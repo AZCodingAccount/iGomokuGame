@@ -1,0 +1,71 @@
+server:
+  port: 8080
+
+
+spring:
+  profiles:
+    active: pro
+  main:
+    allow-circular-references: true
+  datasource:
+    driver-class-name: ${gobanggame.datasource.driver-class-name}
+    url: jdbc:mysql://${gobanggame.datasource.host}:${gobanggame.datasource.port}/${gobanggame.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: ${gobanggame.datasource.username}
+    password: ${gobanggame.datasource.password}
+    type: ${gobanggame.datasource.type}
+  servlet:
+    multipart:
+      # 单个文件最大大小
+      max-file-size: 50MB
+      # 所有上传文件最大大小
+      max-request-size: 50MB
+
+
+
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.gobanggame.pojo.entity
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com:
+      gobanggame:
+        mapper: debug
+        service: info
+        controller: info
+#jwt和oss相关配置
+gobanggame:
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    secret-key: hello
+    # 设置jwt过期时间,360天 60*60*24*30*12
+    ttl: 31104000
+  alioss:
+    endpoint: ${gobanggame.alioss.endpoint}
+    access-key-id: ${gobanggame.alioss.access-key-id}
+    access-key-secret: ${gobanggame.alioss.access-key-secret}
+    bucket-name: ${gobanggame.alioss.bucket-name}
+
+
+#springdoc:
+#  swagger-ui:
+#    path: /swagger-ui.html
+#    tags-sorter: alpha
+#    operations-sorter: alpha
+#  api-docs:
+#    path: /v3/api-docs
+#  group-configs:
+#    - group: 'default'
+#      paths-to-match: '/**'
+#      packages-to-scan: com.gobanggame.controller
+#
+## knife4j的增强配置，不需要增强可以不配
+#knife4j:
+#  enable: true
+#  setting:
+#    language: zh_cn

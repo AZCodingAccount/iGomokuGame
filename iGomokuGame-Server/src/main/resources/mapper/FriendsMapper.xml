@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gobanggame.mapper.FriendsMapper">
+
+<!--多表联查，user_friends表和user表-->
+    <select id="list" resultType="com.gobanggame.pojo.vo.UserSelectByIdVO">
+        select u.*
+        from user_friends uf,
+             user u
+        where uf.user_id = #{id}
+          and uf.deleted = 0
+          and uf.friend_id = u.id
+          and u.deleted = 0
+        order by uf.create_time desc # 根据创建时间降序，说明新加的好友会排在最前面
+    </select>
+</mapper>

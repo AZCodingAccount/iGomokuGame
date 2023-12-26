@@ -1,0 +1,26 @@
+gobanggame:
+  # 数据库连接池相关配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: 39.105.211.248  # 服务器ip或localhost
+    port: 3306  # 端口
+    database: gomoku_online #服务器名称
+    username: root
+    password: handsomeBoy # 配置自己服务器数据库或本地数据库的密码
+  # 阿里云oss相关配置 albertzhang123456
+  alioss:
+    endpoint: handsomeBoy   # 这里填写阿里云OSS地域
+    access-key-id: handsomeBoy  #这里去官网拿key
+    access-key-secret: handsomeBoy #这里去官网拿key
+    bucket-name: handsomeBoy  # 这里配置自己桶的名称
+#spring:
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/gomoku_online?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+#    username: root
+#    password: 123456
+#    druid:
+#      test-while-idle: false
+

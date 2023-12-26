@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gobanggame.mapper.GameHistoryMapper">
+
+<!--条件插入数据-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into game_history
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="roomId != null">
+                room_id,
+            </if>
+            <if test="blackId != null">
+                black_id,
+            </if>
+            <if test="whiteId != null">
+                white_id,
+            </if>
+            begin_time
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="roomId != null">
+                #{roomId},
+            </if>
+            <if test="blackId != null">
+                #{blackId},
+            </if>
+            <if test="whiteId != null">
+                #{whiteId},
+            </if>
+            #{beginTime}
+        </trim>
+    </insert>
+
+</mapper>

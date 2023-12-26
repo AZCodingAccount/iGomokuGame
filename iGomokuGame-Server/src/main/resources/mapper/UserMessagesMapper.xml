@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gobanggame.mapper.UserMessagesMapper">
+<!--    多表联查-->
+    <select id="listTwentyRecords" resultType="com.gobanggame.pojo.vo.UserFriendChatVO">
+        SELECT um.id,
+               um.user_id,
+               um.friend_id,
+               um.message,
+               um.message_time,
+               u.image_url,
+               u.nickname
+        FROM user_messages um
+                 JOIN
+             user u ON u.id = um.user_id
+        WHERE ((um.user_id = #{userId} AND um.friend_id = #{friendId})
+            OR
+               (um.user_id = #{friendId} AND um.friend_id = #{userId}))
+          AND u.deleted = 0
+        ORDER BY um.message_time desc
+        LIMIT 20;
+        # 升序排列，新的信息会放在前面
+    </select>
+</mapper>

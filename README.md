@@ -4,7 +4,7 @@
 
 ## 介绍📘
 
-​		iGomokuGame是一个基于Vue3、SpringBoot3，Element-Plus、WebSocket、SpringTask、DataV、五子棋AI算法等实现的一款在线五子棋游戏。支持**排行榜功能**、**好友功能**、**人机对战**、**人机互动**、**联机对战**、**数据可视化分析**等功能。项目使用最新技术开发，开发过程规范，逻辑严谨。
+​		iGomokuGame是一个基于**Vue3**、**SpringBoot3**，**Element-Plus**、**WebSocket**、**SpringTask**、**DataV**、**五子棋AI算法**等实现的一款在线五子棋游戏。支持**排行榜功能**、**好友功能**、**人机对战**、**人机互动**、**联机对战**、**数据可视化分析**等功能。项目使用最新技术开发，开发过程规范，逻辑严谨。
 
 B站项目介绍地址： https://b23.tv/ph4Oz5l
 
@@ -15,7 +15,7 @@ B站项目介绍地址： https://b23.tv/ph4Oz5l
 
 ℹ️ 对于用户端，您可能需要**Ctrl+滚轮**将屏幕缩放到一定尺寸（一般是80%）
 
-ℹ️ 第一次访问耐心等待浏览器从服务器拉取资源
+ℹ️ 第一次访问请耐心等待浏览器从服务器拉取资源
 
 ⚠️ 由于本项目已上线，管理员演示账号将于两星期后 **2024年1月9日**移除，届时无法在线体验管理员端功能
 
@@ -78,6 +78,20 @@ pnpm i	   # 安装依赖
 pnpm dev   # 运行程序	
 ```
 
+- **运行数据库脚本**
+
+init.sql文件在  `/iGomokuGame-Server/src/main/resources/sql`目录下。
+
+1：右键使用idea运行
+
+2：找到一款数据可视化工具，如Navicat ，DataGrip等，导入sql文件，运行。
+
+3：使用命令行运行
+
+```bash
+mysql -u username -p < ./init.sql	# sql文件的相对或绝对路径
+```
+
 - **运行后端项目**
 
 1：右键使用idea打开。点击run即可运行
@@ -116,6 +130,8 @@ pnpm dev   # 运行程序
 - 可视化大屏
 
 ![image-20231226160435752](https://my-picture-bed1-1321100201.cos.ap-beijing.myqcloud.com/mypictures/image-20231226160435752.png)
+
+
 
 - 流量分析页
 
@@ -156,5 +172,7 @@ pnpm dev   # 运行程序
 
 |                             微信                             |                            支付宝                            |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img src="https://my-picture-bed1-1321100201.cos.ap-beijing.myqcloud.com/mypictures/wechat.jpg" alt="wechat" style="zoom: 25%;margin:0 auto" /> | <img src="https://my-picture-bed1-1321100201.cos.ap-beijing.myqcloud.com/mypictures/alipay.jpg" alt="alipay" style="zoom:25%;margin:0 auto" /> |
+| <img src="https://my-picture-bed1-1321100201.cos.ap-beijing.myqcloud.com/mypictures/wechat.jpg" alt="wechat" style="zoom: 15%;margin:0 auto" /> | <img src="https://my-picture-bed1-1321100201.cos.ap-beijing.myqcloud.com/mypictures/alipay.jpg" alt="alipay" style="zoom:15%;margin:0 auto" /> |
+
+
 

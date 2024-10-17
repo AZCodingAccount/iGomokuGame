@@ -15,7 +15,7 @@ const userInfoRev = ref({
   nickname: props.userInfo.nickname,
   gender: props.userInfo.gender,
   age: props.userInfo.age,
-  decription: props.userInfo.decription,
+  description: props.userInfo.description,
   socialAccount: props.userInfo.socialAccount
 }) // 绑定表单
 
@@ -24,7 +24,6 @@ const toModify = () => {
   canModify.value = true
 }
 const onCancel = () => {
-  userInfoRev.value = props.userInfo
   canModify.value = false
 }
 const onModify = async () => { // 修改信息
@@ -38,7 +37,7 @@ const onModify = async () => { // 修改信息
   }
   await updateInfo(userInfoRev.value)
   // 修改成功
-  userIderStore.modifyUserInfo(userInfoRev.value)
+  userIderStore.setUserInfo(userInfoRev.value)
   ElMessage({
     message: '修改成功',
     type: 'success',
@@ -76,7 +75,7 @@ const onModify = async () => { // 修改信息
         </el-form-item>
 
         <el-form-item label="自我介绍">
-          <el-input v-model="userInfoRev.decription" type="textarea" :autosize="{ minRows: 2, maxRows: 2 }" />
+          <el-input v-model="userInfoRev.description" type="textarea" :autosize="{ minRows: 2, maxRows: 2 }" />
         </el-form-item>
 
         <el-form-item label="联系方式">

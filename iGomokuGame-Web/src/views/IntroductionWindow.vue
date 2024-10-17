@@ -25,9 +25,10 @@ const form = ref({
 })
 const openDialog = () => {
   loginDialogVisible.value = true
-  form.value.username = ''
-  form.value.password = ''
+  form.value.username = 'demo'
+  form.value.password = 'demo'
 }
+openDialog
 const onSubmit = async () => {
   if (form.value.username == '') {
     ElMessage.error('用户名不能为空')
@@ -117,8 +118,8 @@ const pressPassword = (event) => {
         <!-- 登录对话框 -->
         <el-dialog v-model="loginDialogVisible" width="30%">
           <div style="max-width: 600px">
-            <h1 style="text-align: center">{{ status ? '登录' : '注册' }}</h1>
-            <el-form :model="form" label-width="120px">
+            <h1 style="text-align: center;padding-bottom: 10px;">{{ status ? '登录' : '注册' }}</h1>
+            <el-form :model="form" label-width="50px">
               <el-form-item label="用户名">
                 <el-input
                   ref="usernameInp"
@@ -141,7 +142,7 @@ const pressPassword = (event) => {
               <div>
                 <el-button
                   style="float: right"
-                  size="small"
+                  size="mid"
                   type="primary"
                   @click="status = !status"
                 >

@@ -137,6 +137,9 @@ router.beforeEach((to, from, next) => {
   const jwt = isAdminRoute ? adminJwt : userJwt
 
   if (isAuthRequired) {
+    if (to.path.startsWith('/login') && isJwtValid(jwt)) {
+      next('/main/game')
+    }
     if (!jwt || !isJwtValid(jwt)) {
       // 如果这是管理员路由但没有有效的管理员JWT，重定向到管理员登录页
       if (isAdminRoute) {

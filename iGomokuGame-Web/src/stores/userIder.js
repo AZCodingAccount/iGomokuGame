@@ -13,12 +13,13 @@ export const useUserIderStore = defineStore(
       userLevel: '',
       imageUrl: '',
       online: '',
+      description: '这个用户很懒，还没有自我介绍~',
       lastOnlineTime: '',
       jwt: '',
       rankingList: []
     })
-    const setUserInfo = (data) => {
-      userInfo.value = data
+    const setUserInfo = (data) => {      
+      userInfo.value = { ...data }
     }
     const setMyImageUrl = (url) => {
       userInfo.value.imageUrl = url
@@ -36,9 +37,7 @@ export const useUserIderStore = defineStore(
     const getChatSocket = () => {
       const url = new URL(baseURL)
       const hostAndPort = `${url.hostname}:${url.port}`
-      chatSocket.value = new WebSocket(
-        'ws://' + hostAndPort+ '/user/friend/' + userInfo.value.id
-      )
+      chatSocket.value = new WebSocket('ws://' + hostAndPort + '/user/friend/' + userInfo.value.id)
       chatSocket.value.onopen = (event) => {
         console.log('chatSocket open', event)
       }

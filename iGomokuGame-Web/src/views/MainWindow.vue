@@ -24,7 +24,7 @@ const drawer = ref(false) // 控制个人信息抽屉的显示
         <el-image src="/img/background/a202c44c2075478dbfac39baeb800046.png" />
     </div>
     <!-- 菜单 -->
-    <el-menu class="menu" mode="horizontal" :unique-opened="true" :ellipsis="false" :router="true">
+    <el-menu class="menu" :default-active="$route.path" mode="horizontal" :unique-opened="true" :ellipsis="false" :router="true">
         <div style="flex-grow: 1;"></div>
 
         <!-- 游戏界面按钮 -->

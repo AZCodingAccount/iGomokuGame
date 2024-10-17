@@ -84,7 +84,11 @@ public class UserServiceImpl implements UserService {
 
         // 维护网站每日记录表，新增一个用户
         WebsiteDayInfo websiteDayInfo1 = websiteDayInfoMapper.selectByDate(LocalDate.now());
-        WebsiteDayInfo websiteDayInfo = WebsiteDayInfo.builder().newUserCount(websiteDayInfo1.getNewUserCount() + 1)
+        int count = 0;
+        if (websiteDayInfo1 != null) {
+            count = websiteDayInfo1.getNewUserCount();
+        }
+        WebsiteDayInfo websiteDayInfo = WebsiteDayInfo.builder().newUserCount(count + 1)
                 .recordDate(LocalDate.now())
                 .build();
         websiteDayInfoMapper.update(websiteDayInfo);
@@ -177,10 +181,10 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void update(UserUpdateDTO userUpdateDTO) {
         /*  更新用户信息的要求：
-        *       1：昵称必须唯一
-        *       2：更新失败给用户返回更新失败的提示（如字段过长）
-        *
-        * */
+         *       1：昵称必须唯一
+         *       2：更新失败给用户返回更新失败的提示（如字段过长）
+         *
+         * */
 
         // 昵称必须唯一，首先看他改昵称了吗？
         User user1 = userMapper.selectByUsername(userUpdateDTO.getUsername());
@@ -204,11 +208,11 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
+     * @param id
+     * @return void
      * @author AlbertZhang
      * @description 根据id删除用户（逻辑删除）
      * @date 2023-12-25 15:39
-     * @param id
-     * @return void
      **/
     @Override
     @Transactional

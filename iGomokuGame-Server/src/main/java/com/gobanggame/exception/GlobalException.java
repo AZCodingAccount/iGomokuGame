@@ -20,7 +20,7 @@ public class GlobalException {
      * @param e
      * @return
      */
-    // @ExceptionHandler
+    @ExceptionHandler
     public Result<Object> exceptionHandler(Exception e) {
         log.error("异常信息：{}", e.getMessage());
         // 捕获我们自定义的那些异常

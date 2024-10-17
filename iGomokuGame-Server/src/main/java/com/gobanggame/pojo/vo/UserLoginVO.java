@@ -29,6 +29,9 @@ public class UserLoginVO {
     @Schema(description = "昵称", example = "这是示例昵称")
     private String nickname;
 
+    @Schema(description = "描述", example = "这是示例描述")
+    private String description;
+
     @Schema(description = "用户等级", example = "胜天半子")
     private String userLevel;
     @Schema(description = "用户头像", example = "http://1.jpg")
